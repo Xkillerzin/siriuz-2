@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  background-color: #121212;
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  color: crimson;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: crimson;
+  text-shadow: 0 0 10px crimson;
+}
+
+/* Hero */
+.hero {
+  background: url('img/Siriuz.jpeg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-content {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 40px 30px;
+  border-radius: 10px;
+  max-width: 90%;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+.hero-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 30px;
+  background-color: crimson;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0px 8px 15px rgba(255, 0, 0, 0.3);
+}
+
+.btn:hover {
+  background-color: darkred;
+  transform: scale(1.05);
+}
+
+/* Sections */
+.section {
+  padding: 80px 20px;
+  background: #1a1a1a;
+  text-align: center;
+}
+
+.section h3 {
+  font-size: 2rem;
+  color: crimson;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.bio p {
+  font-size: 1.1rem;
+  max-width: 900px;
+  margin: 0 auto 30px;
+  line-height: 1.8;
+}
+
+.music-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.music-item {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  width: 180px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.music-item i {
+  font-size: 2rem;
+  color: crimson;
+  margin-bottom: 10px;
+}
+
+.music-item h4 {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.music-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 8px 20px rgba(255, 0, 0, 0.4);
+}
+
+/* Contato */
+.social-links {
+  margin-top: 20px;
+}
+
+.social-icon {
+  display: inline-block;
+  margin: 10px 15px;
+  color: #fff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: crimson;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  background: #111;
+  padding: 20px;
+  font-size: 1rem;
+  color: #777;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding-top: 10px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .music-item {
+    width: 100%;
+    max-width: 300px;
+  }
+}
