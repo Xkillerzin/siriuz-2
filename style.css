@@ -1,14 +1,27 @@
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: #0c0c0c;
   color: #fff;
-  background-color: #121212;
   line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Utilitários Globais */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* Header */
@@ -16,174 +29,202 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 20px 0;
+  background: rgba(5, 5, 5, 0.95);
+  padding: 18px 0;
   z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
   flex-wrap: wrap;
 }
 
 .logo {
   font-family: 'Orbitron', sans-serif;
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: crimson;
-  letter-spacing: 2px;
   text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-nav {
+nav ul {
   display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 25px;
+  list-style: none;
 }
 
 nav a {
   color: #fff;
   text-decoration: none;
   font-size: 1rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  height: 2px;
+  width: 0%;
+  background: crimson;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 nav a:hover {
   color: crimson;
-  text-shadow: 0 0 10px crimson;
 }
 
 /* Hero */
 .hero {
-  background: url('img/Siriuz.jpeg') no-repeat center center/cover;
   height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.85)),
+              url('img/Siriuz.jpeg') center center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-size: cover;
   text-align: center;
-  padding: 0 20px;
 }
 
 .hero-content {
-  background: rgba(0, 0, 0, 0.7);
-  padding: 40px 30px;
-  border-radius: 10px;
-  max-width: 90%;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.75);
+  padding: 60px 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 1.5s ease-out;
 }
 
 .hero-title {
   font-family: 'Orbitron', sans-serif;
-  font-size: 2.5rem;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
+  font-size: 2.8rem;
+  letter-spacing: 3px;
   text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 30px;
 }
 
 .btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 15px 30px;
-  background-color: crimson;
+  background: crimson;
   color: #fff;
-  font-size: 1rem;
-  border-radius: 30px;
-  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 50px;
   font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0px 8px 15px rgba(255, 0, 0, 0.3);
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0px 6px 20px rgba(220, 20, 60, 0.4);
 }
 
 .btn:hover {
-  background-color: darkred;
+  background: darkred;
   transform: scale(1.05);
 }
+.btn-wrapper {
+  margin-top: 40px; /* Adiciona espaçamento para afastar das faixas */
+  display: flex;
+  justify-content: center;
+}
 
-/* Sections */
+/* Seções */
 .section {
-  padding: 80px 20px;
-  background: #1a1a1a;
+  padding: 100px 20px;
+  background-color: #151515;
   text-align: center;
 }
 
+.section:nth-child(even) {
+  background-color: #1b1b1b;
+}
+
 .section h3 {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
   color: crimson;
-  margin-bottom: 30px;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
 .bio p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   max-width: 900px;
-  margin: 0 auto 30px;
-  line-height: 1.8;
+  margin: 0 auto;
+  line-height: 1.9;
 }
 
+/* Músicas */
 .music-list {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
 }
 
 .music-item {
-  background-color: #333;
-  padding: 20px;
-  border-radius: 10px;
-  width: 180px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.music-item i {
-  font-size: 2rem;
-  color: crimson;
-  margin-bottom: 10px;
-}
-
-.music-item h4 {
-  font-size: 1.2rem;
-  color: white;
+  background-color: #262626;
+  padding: 25px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .music-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0px 8px 20px rgba(255, 0, 0, 0.4);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+}
+
+.music-item i {
+  font-size: 2.4rem;
+  color: crimson;
+  margin-bottom: 12px;
+}
+
+.music-item h4 {
+  color: #fff;
+  font-size: 1.3rem;
 }
 
 /* Contato */
 .social-links {
-  margin-top: 20px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
 .social-icon {
-  display: inline-block;
-  margin: 10px 15px;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .social-icon:hover {
   color: crimson;
+  transform: scale(1.1);
 }
 
 /* Footer */
 .footer {
+  background: #101010;
+  padding: 30px 20px;
   text-align: center;
-  background: #111;
-  padding: 20px;
-  font-size: 1rem;
-  color: #777;
+  color: #888;
+  font-size: 0.95rem;
+  border-top: 1px solid #222;
 }
 
 /* Responsividade */
@@ -193,10 +234,9 @@ nav a:hover {
     align-items: flex-start;
   }
 
-  nav {
+  nav ul {
     flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
+    gap: 10px;
     padding-top: 10px;
   }
 
@@ -204,8 +244,19 @@ nav a:hover {
     font-size: 2rem;
   }
 
-  .music-item {
-    width: 100%;
-    max-width: 300px;
+  .btn {
+    font-size: 0.95rem;
+    padding: 12px 24px;
   }
+
+  .section h3 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Animação */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+  
 }
